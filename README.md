@@ -1,4 +1,4 @@
-# Node.js + nginx + MongoDB environment example
+# Node.js + nginx + MongoDB with Docker
 
 Simple Node.js, nginx, MongoDB setup with Docker.
 
