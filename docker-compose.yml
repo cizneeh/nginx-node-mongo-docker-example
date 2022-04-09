@@ -1,0 +1,25 @@
+services:
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    depends_on:
+      - server
+    ports:
+      - 8080:80
+
+  server:
+    build: ./server
+    container_name: server
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    environment:
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - ./mongo/init.js:/docker-entrypoint-initdb.d/init.js:ro
+      - ./mongo/mongo-data:/data/db
+    # Start mongo with authentication enabled
+    command: [mongod, --auth]
