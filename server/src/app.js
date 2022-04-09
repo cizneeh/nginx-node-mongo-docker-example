@@ -26,6 +26,7 @@ try {
 }
 const db = client.db()
 
+// Prepare initial data
 const doc1 = { name: 'Echizen', age: 24 }
 const doc2 = { name: 'Bob', age: 32 }
 
